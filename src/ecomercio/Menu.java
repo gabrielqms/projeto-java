@@ -3,6 +3,7 @@ package ecomercio;
 import ecomercio.model.Carrinho;
 import ecomercio.model.Produto;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -30,8 +31,14 @@ public class Menu {
 			System.out.println("Entre com a opção desejada:                          ");
 			System.out.println("                                                     ");
 
-			opcao = leia.nextInt();
-
+			try {
+                opcao = leia.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Por favor, insira um número válido.");
+                leia.nextLine();
+                continue;
+            }
+			
 			if (opcao == 5) {
 				System.out.println("\nMercado Preso - Seu Destino para Compras Confiáveis.");
                 leia.close();
