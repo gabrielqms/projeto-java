@@ -37,36 +37,20 @@ public class Menu {
 
 			switch (opcao) {
 				case 1:
-					System.out.println("Criar Conta\n\n");
+					System.out.println("Ver Carrinho\n\n");
 
 					break;
 				case 2:
-					System.out.println("Listar todas as Contas\n\n");
+					System.out.println("Colocar no Carrinho\n\n");
 
 					break;
 				case 3:
-					System.out.println("Consultar dados da Conta - por número\n\n");
+					System.out.println("Finalizar\n\n");
 
 					break;
 				case 4:
-					System.out.println("Atualizar dados da Conta\n\n");
-
-					break;
-				case 5:
-					System.out.println("Apagar a Conta\n\n");
-
-					break;
-				case 6:
-					System.out.println("Saque\n\n");
-
-					break;
-				case 7:
-					System.out.println("Depósito\n\n");
-
-					break;
-				case 8:
-					System.out.println("Transferência entre Contas\n\n");
-
+					System.out.println("Sair\n\n");
+					
 					break;
 				default:
 					System.out.println("\nOpção Inválida!\n");
