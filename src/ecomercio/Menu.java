@@ -1,4 +1,7 @@
-package menu;
+package ecomercio;
+
+import ecomercio.model.Carrinho;
+import ecomercio.model.Produto;
 
 import java.util.Scanner;
 
@@ -8,7 +11,7 @@ public class Menu {
 		
 		Scanner leia = new Scanner(System.in);
 
-		int opcao;
+		int opcao, produto;
 
 		while (true) {
 
@@ -31,18 +34,20 @@ public class Menu {
 
 			if (opcao == 5) {
 				System.out.println("\nMercado Preso - Seu Destino para Compras Confiáveis.");
-                 leia.close();
+                leia.close();
 				System.exit(0);
 			}
 
 			switch (opcao) {
 				case 1:
 					System.out.println("Ver Carrinho\n\n");
-
+					
 					break;
 				case 2:
 					System.out.println("Colocar no Carrinho\n\n");
-
+					System.out.println("1- Camisa R$ 50");
+					System.out.println("2- Calça  R$ 80");
+					System.out.println("3- Tenis  R$ 130");
 					break;
 				case 3:
 					System.out.println("Finalizar\n\n");
@@ -54,6 +59,7 @@ public class Menu {
 					break;
 				default:
 					System.out.println("\nOpção Inválida!\n");
+					
 					break;
 			}
 		}
