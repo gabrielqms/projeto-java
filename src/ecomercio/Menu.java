@@ -11,8 +11,9 @@ public class Menu {
 	public static void main(String[] args) {
 		
 		Scanner leia = new Scanner(System.in);
+		Carrinho carrinho = new Carrinho();
 
-		int opcao, produto;
+		int opcao;
 
 		while (true) {
 
@@ -48,21 +49,28 @@ public class Menu {
 			switch (opcao) {
 				case 1:
 					System.out.println("Ver Carrinho\n\n");
-					
+					carrinho.verCarrinho();
 					break;
 				case 2:
 					System.out.println("Colocar no Carrinho\n\n");
-					System.out.println("1- Camisa R$ 50");
-					System.out.println("2- Calça  R$ 80");
-					System.out.println("3- Tenis  R$ 130");
+					exibirProdutos();
+					int produtoEscolhido;
+					try {
+						produtoEscolhido = leia.nextInt();
+					}catch (InputMismatchException e) {
+						System.out.println("Por favor, insira um número válido");
+						leia.nextLine();
+						continue;
+					}
+					adicionarProdutoAoCarrinho(carrinho, produtoEscolhido);
 					break;
 				case 3:
 					System.out.println("Finalizar\n\n");
-
+					carrinho.finalizarCompra();
 					break;
 				case 4:
 					System.out.println("Sair\n\n");
-					
+					System.exit(0);
 					break;
 				default:
 					System.out.println("\nOpção Inválida!\n");
@@ -71,6 +79,28 @@ public class Menu {
 			}
 		}
 	}
-
+	
+	 private static void exibirProdutos() {
+	        System.out.println("Escolha um produto:");
+	        System.out.println("1- Camisa R$ 50");
+	        System.out.println("2- Calça  R$ 80");
+	        System.out.println("3- Tênis  R$ 130");
+	    }
+	 
+	 private static void adicionarProdutoAoCarrinho(Carrinho carrinho, int produtoEscolhido) {
+	        switch (produtoEscolhido) {
+	            case 1:
+	                carrinho.adicionarProduto(new Produto("Camisa", 50.0));
+	                break;
+	            case 2:
+	                carrinho.adicionarProduto(new Produto("Calça", 80.0));
+	                break;
+	            case 3:
+	                carrinho.adicionarProduto(new Produto("Tênis", 130.0));
+	                break;
+	            default:
+	                System.out.println("Produto não reconhecido.");
+	                break;
+	        }
+	 	}
 	}
-
